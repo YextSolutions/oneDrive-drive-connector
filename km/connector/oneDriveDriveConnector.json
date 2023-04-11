@@ -9,8 +9,8 @@
         "source": "onedrive",
         "operation": "fetchRootItems",
         "inputs": {
-          "driveId": "[[driveId]]",
-          "linkedAccountId": "[[microsoftLinkedAccount]]"
+          "driveId": "${{driveId}}",
+          "linkedAccountId": "${{microsoftLinkedAccount}}"
         }
       }
     },
