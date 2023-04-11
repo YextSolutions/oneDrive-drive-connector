@@ -1,5 +1,5 @@
 {
-  "$id": "c_createdDate",
+  "$id": "oneDrive_createdDate",
   "$schema": "https://schema.yext.com/config/km/field/v1",
   "displayName": "Created Date",
   "group": "NONE",

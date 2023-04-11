@@ -1,5 +1,5 @@
 {
-  "$id": "c_lastModifiedByName",
+  "$id": "oneDrive_lastModifiedByName",
   "$schema": "https://schema.yext.com/config/km/field/v1",
   "displayName": "Last Modified By Name",
   "group": "NONE",

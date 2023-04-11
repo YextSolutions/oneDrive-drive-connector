@@ -85,7 +85,7 @@
         "inputHeader": "Last Updated",
         "newColumnHeader": "Last Updated - Formatted",
         "extractOperation": "ALL_TEXT_BEFORE",
-        "extractFrom": "FIRST_INSTANoneDrive_MATCHING_TEXT",
+        "extractFrom": "FIRST_INSTANCE_MATCHING_TEXT",
         "valueToFind": {
           "plainText": {
             "value": "T",
@@ -99,7 +99,7 @@
         "inputHeader": "Created Date",
         "newColumnHeader": "Created Date - Formatted",
         "extractOperation": "ALL_TEXT_BEFORE",
-        "extractFrom": "FIRST_INSTANoneDrive_MATCHING_TEXT",
+        "extractFrom": "FIRST_INSTANCE_MATCHING_TEXT",
         "valueToFind": {
           "plainText": {
             "value": "T",

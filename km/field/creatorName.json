@@ -1,5 +1,5 @@
 {
-  "$id": "c_creatorName",
+  "$id": "oneDrive_creatorName",
   "$schema": "https://schema.yext.com/config/km/field/v1",
   "displayName": "Creator Name",
   "group": "NONE",
