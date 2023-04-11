@@ -1,0 +1,175 @@
+{
+  "$id": "oneDrive_oneDriveConnector",
+  "$schema": "https://schema.yext.com/config/km/connector/v3",
+  "displayName": "OneDrive Connector",
+  "entityType": "oneDrive_file",
+  "source": {
+    "sourceConfig": {
+      "nativeSourceConfig": {
+        "source": "onedrive",
+        "operation": "fetchRootItems",
+        "inputs": {
+          "driveId": "[[driveId]]",
+          "linkedAccountId": "[[microsoftLinkedAccount]]"
+        }
+      }
+    },
+    "selectors": [
+      {
+        "type": "JSON",
+        "header": "File",
+        "path": "\"@microsoft.graph.downloadUrl\""
+      },
+      {
+        "type": "JSON",
+        "header": "Name",
+        "path": "name"
+      },
+      {
+        "type": "JSON",
+        "header": "Entity ID",
+        "path": "id"
+      },
+      {
+        "type": "JSON",
+        "header": "Landing Page URL",
+        "path": "webUrl"
+      },
+      {
+        "type": "JSON",
+        "header": "Created By Name",
+        "path": "createdBy.user.displayName"
+      },
+      {
+        "type": "JSON",
+        "header": "Created By Email",
+        "path": "createdBy.user.email"
+      },
+      {
+        "type": "JSON",
+        "header": "Created Date",
+        "path": "createdDateTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Last Updated by Name",
+        "path": "lastModifiedBy.user.displayName"
+      },
+      {
+        "type": "JSON",
+        "header": "Last Updated Email",
+        "path": "lastModifiedBy.user.email"
+      },
+      {
+        "type": "JSON",
+        "header": "Last Updated",
+        "path": "lastModifiedDateTime"
+      }
+    ]
+  },
+  "transforms": [
+    {
+      "filterRows": {
+        "action": "REMOVE",
+        "combinator": "AND",
+        "rules": [
+          {
+            "columnHeader": "File",
+            "conditional": "IS_BLANK"
+          }
+        ]
+      }
+    },
+    {
+      "extractText": {
+        "inputHeader": "Last Updated",
+        "newColumnHeader": "Last Updated - Formatted",
+        "extractOperation": "ALL_TEXT_BEFORE",
+        "extractFrom": "FIRST_INSTANoneDrive_MATCHING_TEXT",
+        "valueToFind": {
+          "plainText": {
+            "value": "T",
+            "ignoreCase": false
+          }
+        }
+      }
+    },
+    {
+      "extractText": {
+        "inputHeader": "Created Date",
+        "newColumnHeader": "Created Date - Formatted",
+        "extractOperation": "ALL_TEXT_BEFORE",
+        "extractFrom": "FIRST_INSTANoneDrive_MATCHING_TEXT",
+        "valueToFind": {
+          "plainText": {
+            "value": "T",
+            "ignoreCase": false
+          }
+        }
+      }
+    }
+  ],
+  "mappings": [
+    {
+      "header": "Landing Page URL",
+      "field": "landingPageUrl",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Created By Email",
+      "field": "oneDrive_creatorEmail",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Last Updated Email",
+      "field": "oneDrive_lastModifiedByEmail",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Entity ID",
+      "field": "entityId",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Created By Name",
+      "field": "oneDrive_creatorName",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "File",
+      "field": "oneDrive_file",
+      "subfieldPath": [
+        {
+          "name": "url"
+        }
+      ],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Last Updated by Name",
+      "field": "oneDrive_lastModifiedByName",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Name",
+      "field": "name",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    }
+  ],
+  "scheduleConfig": {
+    "customSchedule": {
+      "timeZone": "America/New_York",
+      "startDate": "2023-04-11",
+      "startTime": "09:00",
+      "frequencyType": "DAILY"
+    },
+    "runMode": "DEFAULT"
+  }
+}
