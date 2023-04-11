@@ -10,7 +10,7 @@
         "operation": "fetchRootItems",
         "inputs": {
           "driveId": "${{driveId}}",
-          "linkedAccountId": "${{microsoftLinkedAccount}}"
+          "linkedAccount": "${{microsoftLinkedAccount}}"
         }
       }
     },
