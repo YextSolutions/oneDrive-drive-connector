@@ -69,18 +69,6 @@
   },
   "transforms": [
     {
-      "filterRows": {
-        "action": "REMOVE",
-        "combinator": "AND",
-        "rules": [
-          {
-            "columnHeader": "File",
-            "conditional": "IS_BLANK"
-          }
-        ]
-      }
-    },
-    {
       "extractText": {
         "inputHeader": "Last Updated",
         "newColumnHeader": "Last Updated - Formatted",
