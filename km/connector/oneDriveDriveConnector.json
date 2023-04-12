@@ -1,7 +1,7 @@
 {
-  "$id": "oneDrive_oneDriveConnector",
+  "$id": "oneDrive_DriveConnector",
   "$schema": "https://schema.yext.com/config/km/connector/v3",
-  "displayName": "OneDrive Connector",
+  "displayName": "OneDrive Drive Connector",
   "entityType": "oneDrive_file",
   "source": {
     "sourceConfig": {
