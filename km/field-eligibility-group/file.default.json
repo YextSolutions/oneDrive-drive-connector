@@ -11,8 +11,6 @@
     "oneDrive_lastModifiedByEmail",
     "oneDrive_lastModifiedByName",
     "oneDrive_lastModifiedDate",
-    "externalArticlePostDate",
-    "externalArticleUpdateDate",
     "landingPageUrl",
     "externalAuthorizationSource",
     "externalAuthorizedIdentities"
