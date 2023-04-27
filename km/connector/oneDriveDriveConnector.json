@@ -67,17 +67,18 @@
       },
       {
         "type": "JSON",
-        "header": "External Authorization Source",
-        "path": "permissions.value[].grantedToV2.user.email"
-      },
-      {
-        "type": "JSON",
         "header": "External Authorization Identities",
-        "path": "permissions.value[].grantedToV2.user.displayName"
+        "path": "permissions.value[].grantedToV2.user.email"
       }
     ]
   },
   "transforms": [
+    {
+      "addColumn": {
+        "newColumnHeader": "External Authorization Source",
+        "columnValue": "onedrive"
+      }
+    },
     {
       "extractText": {
         "inputHeader": "Last Modified Date",
